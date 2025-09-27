@@ -6,7 +6,7 @@ function InputField({label, as = "input", type, name, id, register, value, optio
 
     if (as === "select") {
         return (
-            <label htmlFor={id}>
+            <label htmlFor={id} className="input-primary">
                 {label}
                 <Component
                     id={id}
@@ -21,7 +21,7 @@ function InputField({label, as = "input", type, name, id, register, value, optio
         )
     }
     return wrapInputInLabel ? (
-        <label>
+        <label className="input-secondary">
             <Component
                 {...register(name)}
                 id={id}
@@ -31,7 +31,7 @@ function InputField({label, as = "input", type, name, id, register, value, optio
             {label}
         </label>
     ) : (
-        <label htmlFor={id}>
+        <label htmlFor={id} className="input-primary">
             {label}
             <Component
                 {...register(name)}

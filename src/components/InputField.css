@@ -1,0 +1,12 @@
+.input-primary,
+.input-secondary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.5rem;
+    font-weight: 600;
+}
+
+.input-secondary {
+    gap: 1rem;
+}
