@@ -1,8 +1,8 @@
 import './Card.css';
 import Button from "./Button.jsx";
-import InputField from "./InputField.jsx";
 
-function Card({id, fruit, counter, fruitCounter, register}) {
+
+function Card({id, fruit, counter, fruitCounter, buttonActive, setButtonActive, register}) {
 
     return (
         <article id={id}>
@@ -13,7 +13,13 @@ function Card({id, fruit, counter, fruitCounter, register}) {
                     [id]: prev[id] > 0 ? prev[id] - 1 : 0
                 }))}>-</Button>
                 <span>{counter}</span>
-                <Button className="button-primary" type="button" onClick={() => fruitCounter(prev => ({...prev, [id]: prev[id] + 1}))}>+</Button>
+                <Button className={buttonActive ? "button-active" : "button-primary"}
+                        type="button"
+                        onClick={() => {
+                            if (!buttonActive) setButtonActive(true);
+                            fruitCounter(prev => ({...prev, [id]: prev[id] + 1}));
+                        }}
+                >+</Button>
                 {register && (<input type="hidden" {...register(id)} value={counter}/>)}
             </div>
         </article>

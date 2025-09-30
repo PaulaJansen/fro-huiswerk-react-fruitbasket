@@ -9,10 +9,10 @@
 
 /*------------------CSS VARIABLES--------------*/
 :root {
-    --primary-color: rgb(51, 90, 102);
-    --primary-color-light: rgba(51, 90, 102, 0.4);
-    --secondary-color: rgb(140, 113, 0);
-    --secondary-color-light: rgba(140, 113, 0, 0.4);
+    --primary-color: rgb(50,111, 114);
+    --primary-color-light: rgb(50, 111, 114, 0.4);
+    --secondary-color: rgb(194, 138, 47);
+    --secondary-color-light: rgb(237, 211, 178);
 }
 
 /*------------------TYPOGRAPHY-----------------*/
@@ -26,11 +26,9 @@
 
 h1 {
     font-size: 1.5rem;
-    font-weight: 600;
+    font-weight: 700;
     text-align: center;
-    position: relative;
-    top: 13rem;
-    color: var(--secondary-color-light);
+    color: var(--primary-color);
 }
 
 h2 {

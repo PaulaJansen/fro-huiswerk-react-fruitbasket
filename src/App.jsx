@@ -11,6 +11,7 @@ function App() {
     }
 
     const {register, handleSubmit} = useForm();
+    const [active, setActive] = useState(false);
     const [counters, setCounters] = useState({
         strawberry: 0,
         banana: 0,
@@ -30,7 +31,7 @@ function App() {
     ];
 
     return (
-        <>
+        <div className="background-wrapper">
             <header>
                 <h1>Je lievelingsfruit, altijd wanneer jij er zin in hebt!</h1>
             </header>
@@ -43,13 +44,17 @@ function App() {
                               fruit={`${fruit.emoji} ${fruit.name}`}
                               counter={counters[fruit.id]}
                               fruitCounter={setCounters}
+                              buttonActive={active[fruit.id]}
+                              setButtonActive={(val) => setActive(prev => ({...prev, [fruit.id]: val}))}
                         />
                     ))}
                 </section>
                 <Button className="button-secondary" type="button"
-                        onClick={() => setCounters(Object.fromEntries(fruits.map(fruit => [fruit.id, 0])))}>Reset</Button>
-
-                <form onSubmit={handleSubmit(handleFormSubmit)}>
+                        onClick={() => {
+                            setCounters(Object.fromEntries(fruits.map(fruit => [fruit.id, 0])));
+                            setActive({});}}
+                            >Reset</Button>
+                <form className="form" onSubmit={handleSubmit(handleFormSubmit)}>
                     <InputField label="Voornaam: " as="input" type="text" name="name" id="name" register={register}/>
                     <InputField label="Achternaam: " as="input" type="text" name="surname" id="surname"
                                 register={register}/>
@@ -69,18 +74,18 @@ function App() {
                                     value: "biweekly",
                                     label: "Om de week"
                                 }, {value: "monthly", label: "Maandelijks"}]}/>
-                    <InputField label="Overdag" as="input" type="radio" name="time-of-day" id="time-of-day" value="day"
+                    <InputField label="Overdag" as="input" type="radio" name="time-of-day" id="time-of-day-day" value="day"
                                 register={register}/>
-                    <InputField label="'s Avonds" as="input" type="radio" name="time-of-day" id="time-of-day"
+                    <InputField label="'s Avonds" as="input" type="radio" name="time-of-day" id="time-of-day-evening"
                                 value="evening" register={register}/>
-                    <InputField label="Opmerkingen: " as-="input" type="textarea" name="message" id="message"
+                    <InputField label="Opmerkingen: " as="textarea" className="textarea" name="message" id="message"
                                 register={register} placeholder="Schrijf hier je bericht..."/>
                     <InputField label="Ik ga akkoord met de voorwaarden" as="input" type="checkbox"
                                 name="terms-and-conditions" id="terms-and-conditions" register={register} value="yes"/>
                     <Button className="button-secondary" type="submit">Verzend</Button>
                 </form>
             </main>
-        </>
+        </div>
     )
 }
 
