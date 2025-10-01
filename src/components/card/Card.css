@@ -1,0 +1,12 @@
+article {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 25rem;
+    padding: 2rem;
+    margin: 1rem;
+    border: 2px solid  var(--secondary-color);
+    border-radius: 1rem;
+    background-color: var(--secondary-color-light);
+
+}
