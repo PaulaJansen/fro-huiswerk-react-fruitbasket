@@ -1,9 +1,9 @@
 import "./App.css";
 import {useForm} from "react-hook-form";
-import InputField from "./components/InputField.jsx";
-import Button from "./components/Button.jsx";
+import InputField from "./components/inputField/InputField.jsx";
+import Button from "./components/button/Button.jsx";
 import {useState} from "react";
-import Card from "./components/Card.jsx";
+import Card from "./components/card/Card.jsx";
 
 function App() {
     function handleFormSubmit(data) {
@@ -54,18 +54,18 @@ function App() {
                             setCounters(Object.fromEntries(fruits.map(fruit => [fruit.id, 0])));
                             setActive({});}}
                             >Reset</Button>
-                <form className="form" onSubmit={handleSubmit(handleFormSubmit)}>
+                <form onSubmit={handleSubmit(handleFormSubmit)}>
                     <InputField label="Voornaam: " as="input" type="text" name="name" id="name" register={register}/>
                     <InputField label="Achternaam: " as="input" type="text" name="surname" id="surname"
                                 register={register}/>
-                    <InputField label="Leeftijd: " as="input" type="text" name="age" id="age" register={register}/>
+                    <InputField label="Adres: " as="input" type="text" name="age" id="age" register={register}/>
                     <InputField label="Postcode: " as="input" type="text" name="zipcode" id="zipcode"
                                 register={register}/>
                     <InputField label="Bezorgfrequentie: " as="select" name="frequency" id="frequency"
                                 register={register}
                                 options={[{
                                     value: "",
-                                    label: "Kies bezorging...",
+                                    label: "Kies bezorgfrequentie...",
                                     disabled: true
                                 }, {value: "weekly", label: "Iedere week"}, {
                                     value: "daily",

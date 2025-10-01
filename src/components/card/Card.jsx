@@ -1,5 +1,5 @@
 import './Card.css';
-import Button from "./Button.jsx";
+import Button from "../button/Button.jsx";
 
 
 function Card({id, fruit, counter, fruitCounter, buttonActive, setButtonActive, register}) {
